@@ -7,20 +7,15 @@ export default class CountryDetail extends Component {
   constructor(props) {
     super(props);
   }
-  render() {
-    
-    let filterFunction = (id) =>{
-      countriesJSON.filter(country => {
+  findCountry = (id)=>{
+    return countriesJSON.filter(country=>{
         return country.cca3 === id
-      })[0]
-    }
-      let { id } = this.props.match.params;
-      let filteredCountry = filterFunction(id);
-  
+     })[0]  
+  }
+  render() {
+    const { id } = this.props.match.params;
 
-    // const filteredCountry = countriesJSON.filter(country => {
-    //   return country.cca3 === id;
-    // })[0];
+    const filteredCountry = this.findCountry(id)
 
     return (
       <div>
@@ -58,5 +53,4 @@ export default class CountryDetail extends Component {
       </div>
     );
   }
-  }
-
+}
