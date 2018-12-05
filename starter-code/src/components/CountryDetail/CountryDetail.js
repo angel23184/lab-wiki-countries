@@ -41,7 +41,7 @@ export default class CountryDetail extends Component {
                   <ul>
                     {filteredCountry.borders.map((border, i) => {
                       return <li>
-                        <Link to={`/${border}`}>{border}</Link>
+                        <Link to={`/${border}`}>{this.findCountry(border).name.common}</Link>
                       </li>
                     })}
                   </ul>
